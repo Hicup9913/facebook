@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook - Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f0f2f5;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      gap: 60px;
+    }
+    .text-section h1 {
+      color: #1877f2;
+      font-size: 56px;
+      margin: 0;
+    }
+    .text-section p {
+      font-size: 20px;
+      color: #1c1e21;
+    }
+    .form-section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 360px;
+    }
+    .form-section input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .form-section button {
+      width: 100%;
+      padding: 14px;
+      background: #1877f2;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .form-section button:hover {
+      background: #166fe5;
+    }
+    .form-section a {
+      display: block;
+      text-align: center;
+      margin: 12px 0;
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .divider {
+      border-top: 1px solid #dddfe2;
+      margin: 20px 0;
+    }
+    .create-btn {
+      background: #42b72a;
+      font-size: 16px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      padding: 12px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-section">
+      <h1>facebook</h1>
+      <p>Connect with friends and the world around you on Facebook.</p>
+    </div>
+    <div class="form-section">
+      <form>
+        <input type="text" placeholder="Email or Phone Number" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+        <a href="#">Forgotten password?</a>
+        <div class="divider"></div>
+        <button type="button" class="create-btn" onclick="window.location.href='/'">Create New Account</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

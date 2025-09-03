@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook - Register</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f0f2f5;
+    }
+
+    .register-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-box {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      width: 400px;
+    }
+
+    .register-box h2 {
+      margin: 0;
+      color: #1c1e21;
+    }
+
+    .register-box p {
+      margin: 5px 0 15px;
+      font-size: 14px;
+      color: #606770;
+    }
+
+    .register-box input,
+    .register-box select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .register-box .name {
+      display: flex;
+      gap: 10px;
+    }
+
+    .register-box .name input {
+      flex: 1;
+    }
+
+    .register-box label {
+      font-size: 13px;
+      color: #606770;
+    }
+
+    .gender {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .gender div {
+      flex: 1;
+      border: 1px solid #dddfe2;
+      padding: 8px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 14px;
+      background: #42b72a;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .signup-btn:hover {
+      background: #36a420;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register-container">
+    <div class="register-box">
+      <h2>Create a new account</h2>
+      <p>It’s quick and easy.</p>
+      <form action="/register" method="post">
+        <div class="name">
+          <input type="text" name="firstname" placeholder="First name" required>
+          <input type="text" name="surname" placeholder="Surname" required>
+        </div>
+
+        <label>Date of birth</label>
+        <input type="date" name="dateofbirth" required>
+
+        <label>Gender</label>
+        <div class="gender">
+          <div><label>Female</label><input type="radio" name="gender" value="female" required></div>
+          <div><label>Male</label><input type="radio" name="gender" value="male" required></div>
+          <div><label>Custom</label><input type="radio" name="gender" value="custom" required></div>
+        </div>
+
+        <input type="text" name="email" placeholder="Mobile number or email" required>
+        <input type="password" name="password" placeholder="New password" required>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+
+
+    </div>
+  </div>
+</body>
+
+</html>
