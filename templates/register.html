@@ -170,51 +170,14 @@
           <input type="text" name="surname" placeholder="Surname" required>
         </div>
 
-        <label for="dob">Date of Birth</label>
-        <div style="display:flex; gap:5px; margin:5px 0;">
-          <select id="day" name="day" required>
-            <option value="">Day</option>
-            <!-- Days 1 to 31 -->
-            <script>
-              for (let d = 1; d <= 31; d++) {
-                document.write(`<option value="${d}">${d}</option>`);
-              }
-            </script>
-          </select>
-
-          <select id="month" name="month" required>
-            <option value="">Month</option>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-
-          <select id="year" name="year" required>
-            <option value="">Year</option>
-            <script>
-              let currentYear = new Date().getFullYear();
-              for (let y = currentYear; y >= 1900; y--) {
-                document.write(`<option value="${y}">${y}</option>`);
-              }
-            </script>
-          </select>
-        </div>
-        <p id="dobError" class="error">You must be at least 18 years old to register.</p>
+        <label>Date of birth</label>
+        <input type="date" name="dateofbirth" required>
 
         <label>Gender</label>
         <div class="gender">
-          <label>Female <input type="radio" name="gender" value="female"></label>
-          <label>Male <input type="radio" name="gender" value="male"></label>
-          <label>Custom <input type="radio" name="gender" value="custom"></label>
+          <label>Female <input type="radio" name="gender" value="female" required></label>
+          <label>Male <input type="radio" name="gender" value="male" required></label>
+          <label>Custom <input type="radio" name="gender" value="custom" required></label>
         </div>
 
         <input type="text" name="email" placeholder="Mobile number or email address" required>
@@ -233,35 +196,10 @@
 
         <button type="submit" class="signup-btn">Sign Up</button>
       </form>
+
     </div>
   </div>
 
-  <script>
-    document.getElementById("registerForm").addEventListener("submit", function (e) {
-      const day = document.getElementById("day").value;
-      const month = document.getElementById("month").value;
-      const year = document.getElementById("year").value;
-      const errorMsg = document.getElementById("dobError");
-
-      if (day && month && year) {
-        const dob = new Date(year, month - 1, day);
-        const today = new Date();
-
-        let age = today.getFullYear() - dob.getFullYear();
-        const m = today.getMonth() - dob.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
-          age--;
-        }
-
-        if (age < 18) {
-          e.preventDefault();
-          errorMsg.style.display = "block";
-        } else {
-          errorMsg.style.display = "none";
-        }
-      }
-    });
-  </script>
 </body>
 
 </html>
