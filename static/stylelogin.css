@@ -1,0 +1,98 @@
+body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f0f2f5;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      gap: 80px;
+    }
+    .text-section h1 {
+      color: #1877f2;
+      font-size: 56px;
+      margin: 0;
+      font-weight: bold;
+    }
+    .text-section p {
+      font-size: 24px;
+      color: #1c1e21;
+      margin-top: 10px;
+      max-width: 400px;
+    }
+    .form-section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      width: 396px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .form-section input {
+      width: calc(100% - 2px); /* Prevents overflow */
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    /* Blue login button */
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: #1877f2;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .login-btn:hover {
+      background: #166fe5;
+    }
+    .form-section a {
+      display: block;
+      text-align: center;
+      margin: 15px 0;
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .divider {
+      border-top: 1px solid #dddfe2;
+      margin: 20px 0;
+    }
+    /* Green Create Account Button */
+    .create-btn {
+      font-size: 17px;
+      font-weight: bold;
+      padding: 14px 20px;
+      background: #42b72a;  /* Correct green */
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      display: inline-block;
+      width: auto; /* Not full width */
+    }
+    .create-btn:hover {
+      background: #36a420;
+    }
+    .bottom-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #1c1e21;
+    }
+    .bottom-text a {
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+    }
