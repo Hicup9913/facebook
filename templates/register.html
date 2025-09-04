@@ -104,8 +104,8 @@
       <p>It’s quick and easy.</p>
       <form action="/register" method="post">
         <div class="name">
-          <input type="text" name="firstname" placeholder="First name" required>
-          <input type="text" name="surname" placeholder="Surname" required>
+          <input type="text" name="firstname" placeholder="First name" pattern="[A-Za-z]+" title="Letters only" required>
+          <input type="text" name="surname" placeholder="Surname" pattern="[A-Za-z]+" title="Letters only" required>
         </div>
 
         <label>Date of birth</label>
