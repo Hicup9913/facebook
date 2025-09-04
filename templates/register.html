@@ -12,10 +12,24 @@
       background: #f0f2f5;
     }
 
+    /* Facebook header */
+    .header {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: -30px;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      color: #1877f2;
+      font-weight: bold;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
     .register-container {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       height: 100vh;
     }
 
@@ -24,28 +38,32 @@
       padding: 20px 30px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      width: 400px;
+      width: 432px;
+      margin-top: 40px;
     }
 
     .register-box h2 {
       margin: 0;
       color: #1c1e21;
+      font-size: 25px;
+      font-weight: bold;
     }
 
     .register-box p {
       margin: 5px 0 15px;
-      font-size: 14px;
+      font-size: 15px;
       color: #606770;
     }
 
     .register-box input,
     .register-box select {
       width: 100%;
-      padding: 12px;
+      padding: 11px;
       margin: 8px 0;
       border: 1px solid #dddfe2;
       border-radius: 6px;
-      font-size: 14px;
+      font-size: 15px;
+      box-sizing: border-box;
     }
 
     .register-box .name {
@@ -60,73 +78,190 @@
     .register-box label {
       font-size: 13px;
       color: #606770;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .dob {
+      display: flex;
+      gap: 10px;
+    }
+
+    .dob select {
+      flex: 1;
     }
 
     .gender {
       display: flex;
       gap: 10px;
-      margin: 10px 0;
+      margin-top: 8px;
     }
 
-    .gender div {
+    .gender label {
       flex: 1;
       border: 1px solid #dddfe2;
-      padding: 8px;
+      padding: 8px 10px;
       border-radius: 6px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
+      font-size: 14px;
     }
 
     .signup-btn {
       width: 100%;
-      padding: 14px;
+      padding: 12px;
       background: #42b72a;
       border: none;
       border-radius: 6px;
       color: #fff;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .signup-btn:hover {
       background: #36a420;
     }
+
+    /* Terms text */
+    .terms {
+      font-size: 11px;
+      color: #777;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .terms a {
+      color: #385898;
+      text-decoration: none;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    /* Error message */
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
   </style>
 </head>
 
 <body>
+  <!-- Facebook header -->
+  <div class="header">
+    <h1>facebook</h1>
+  </div>
+
   <div class="register-container">
     <div class="register-box">
       <h2>Create a new account</h2>
       <p>It’s quick and easy.</p>
-      <form action="/register" method="post">
+
+      <form id="registerForm" action="/register" method="post">
         <div class="name">
-          <input type="text" name="firstname" placeholder="First name" pattern="[A-Za-z]+" title="Letters only" required>
-          <input type="text" name="surname" placeholder="Surname" pattern="[A-Za-z]+" title="Letters only" required>
+          <input type="text" name="firstname" placeholder="First name" required>
+          <input type="text" name="surname" placeholder="Surname" required>
         </div>
 
-        <label>Date of birth</label>
-        <input type="date" name="dateofbirth" required>
+        <label for="dob">Date of Birth</label>
+        <div style="display:flex; gap:5px; margin:5px 0;">
+          <select id="day" name="day" required>
+            <option value="">Day</option>
+            <!-- Days 1 to 31 -->
+            <script>
+              for (let d = 1; d <= 31; d++) {
+                document.write(`<option value="${d}">${d}</option>`);
+              }
+            </script>
+          </select>
+
+          <select id="month" name="month" required>
+            <option value="">Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+
+          <select id="year" name="year" required>
+            <option value="">Year</option>
+            <script>
+              let currentYear = new Date().getFullYear();
+              for (let y = currentYear; y >= 1900; y--) {
+                document.write(`<option value="${y}">${y}</option>`);
+              }
+            </script>
+          </select>
+        </div>
+        <p id="dobError" class="error">You must be at least 18 years old to register.</p>
 
         <label>Gender</label>
         <div class="gender">
-          <div><label>Female</label><input type="radio" name="gender" value="female" required></div>
-          <div><label>Male</label><input type="radio" name="gender" value="male" required></div>
-          <div><label>Custom</label><input type="radio" name="gender" value="custom" required></div>
+          <label>Female <input type="radio" name="gender" value="female"></label>
+          <label>Male <input type="radio" name="gender" value="male"></label>
+          <label>Custom <input type="radio" name="gender" value="custom"></label>
         </div>
 
-        <input type="text" name="email" placeholder="Mobile number or email" required>
+        <input type="text" name="email" placeholder="Mobile number or email address" required>
         <input type="password" name="password" placeholder="New password" required>
+
+        <p class="terms">
+          People who use our service may have uploaded your contact information to Facebook.
+          <a href="#">Learn more</a>.
+        </p>
+
+        <p class="terms">
+          By clicking Sign Up, you agree to our <a href="#">Terms</a>,
+          <a href="#">Privacy Policy</a> and <a href="#">Cookies Policy</a>.
+          You may receive SMS notifications from us and can opt out at any time.
+        </p>
 
         <button type="submit" class="signup-btn">Sign Up</button>
       </form>
-
-
     </div>
   </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      const day = document.getElementById("day").value;
+      const month = document.getElementById("month").value;
+      const year = document.getElementById("year").value;
+      const errorMsg = document.getElementById("dobError");
+
+      if (day && month && year) {
+        const dob = new Date(year, month - 1, day);
+        const today = new Date();
+
+        let age = today.getFullYear() - dob.getFullYear();
+        const m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+          age--;
+        }
+
+        if (age < 18) {
+          e.preventDefault();
+          errorMsg.style.display = "block";
+        } else {
+          errorMsg.style.display = "none";
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
