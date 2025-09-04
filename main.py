@@ -79,14 +79,15 @@ def register_user(
     db.commit()
     db.refresh(user)
 
-    return RedirectResponse(url="/login", status_code=302)
+    return RedirectResponse(url="/", status_code=302)
 
 
 
 
-@app.get("/login", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     """Home page with speech recognition"""
 
     return templates.TemplateResponse("login.html", {"request": request}) 
+
 
