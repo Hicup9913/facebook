@@ -1,98 +1,184 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f0f2f5;
-    }
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      gap: 80px;
-    }
-    .text-section h1 {
-      color: #1877f2;
-      font-size: 56px;
-      margin: 0;
-      font-weight: bold;
-    }
-    .text-section p {
-      font-size: 24px;
-      color: #1c1e21;
-      margin-top: 10px;
-      max-width: 400px;
-    }
-    .form-section {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      width: 396px;
-      text-align: center;
-      box-sizing: border-box;
-    }
-    .form-section input {
-      width: calc(100% - 2px); /* Prevents overflow */
-      padding: 14px;
-      margin: 10px 0;
-      border: 1px solid #dddfe2;
-      border-radius: 6px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    /* Blue login button */
-    .login-btn {
-      width: 100%;
-      padding: 14px;
-      background: #1877f2;
-      border: none;
-      border-radius: 6px;
-      color: #fff;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .login-btn:hover {
-      background: #166fe5;
-    }
-    .form-section a {
-      display: block;
-      text-align: center;
-      margin: 15px 0;
-      color: #1877f2;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .divider {
-      border-top: 1px solid #dddfe2;
-      margin: 20px 0;
-    }
-    /* Green Create Account Button */
-    .create-btn {
-      font-size: 17px;
-      font-weight: bold;
-      padding: 14px 20px;
-      background: #42b72a;  /* Correct green */
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      display: inline-block;
-      width: auto; /* Not full width */
-    }
-    .create-btn:hover {
-      background: #36a420;
-    }
-    .bottom-text {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #1c1e21;
-    }
-    .bottom-text a {
-      font-weight: bold;
-      color: #000;
-      text-decoration: none;
-    }
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Container with two sections */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Left Section */
+.text-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.text-section h1 {
+  color: #1877f2;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.text-section p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Right Section */
+.form-section {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 360px;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section input {
+  padding: 14px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.login-btn {
+  background: #1877f2;
+  color: white;
+  font-size: 1.1rem;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.login-btn:hover {
+  background: #166fe5;
+}
+
+.create-btn {
+  background: #42b72a;
+  color: white;
+  font-size: 1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.create-btn:hover {
+  background: #36a420;
+}
+
+a {
+  text-decoration: none;
+  color: #1877f2;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.divider {
+  border-top: 1px solid #ddd;
+  margin: 15px 0;
+}
+
+.bottom-text {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #333;
+}
+
+.bottom-text a {
+  color: #1877f2;
+  font-weight: bold;
+}
+
+
+/* ✅ Media Queries */
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .text-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .text-section p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    width: 95%;
+  }
+
+  .text-section {
+    margin-bottom: 20px;
+  }
+
+  .text-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .form-section {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Small Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .text-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .text-section p {
+    font-size: 0.95rem;
+  }
+
+  .form-section input {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .login-btn, .create-btn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
