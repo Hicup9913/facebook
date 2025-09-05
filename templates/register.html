@@ -28,7 +28,7 @@
         </div>
 
         <label>Date of birth</label>
-        <input type="date" name="dateofbirth" required>
+        <input type="date" id="dob" name="dateofbirth" required>
 
         <label>Gender</label>
         <div class="gender">
@@ -56,7 +56,26 @@
 
     </div>
   </div>
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      const dob = new Date(document.getElementById("dob").value);
+      const today = new Date();
+
+      // Calculate age
+      let age = today.getFullYear() - dob.getFullYear();
+      const m = today.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+
+      if (age < 18) {
+        event.preventDefault(); // Stop form submission
+        alert("You must be at least 18 years old to register.");
+      }
+    });
+  </script>
 
 </body>
 
 </html>
+
